@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Price Compare - Die beste AI zum besten Preis</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">🤖 AI Price Compare</div>
+                <ul class="nav-links">
+                    <li><a href="#models">Modelle</a></li>
+                    <li><a href="#deals">Deals</a></li>
+                    <li><a href="#about">Über</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Die beste AI zum besten Preis</h1>
+            <p class="hero-subtitle">Vergleiche Preise aller großen AI-Modelle. Finde günstige Routen, Rabatte und Deals.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">13+</span>
+                    <span class="stat-label">Modelle</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Ersparnis möglich</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">3+</span>
+                    <span class="stat-label">Aktive Deals</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="filters" id="models">
+        <div class="container">
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="Frontier">Frontier</button>
+                <button class="filter-btn" data-filter="Balanced">Balanced</button>
+                <button class="filter-btn" data-filter="Budget">Budget</button>
+                <button class="filter-btn" data-filter="Open Source">Open Source</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="models-section">
+        <div class="container">
+            <h2>AI-Modelle im Vergleich</h2>
+            <p class="section-subtitle">Preise pro 1M Tokens (Input/Output)</p>
+            <div class="models-grid" id="models-grid">
+                <!-- Models will be loaded here via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="savings-section">
+        <div class="container">
+            <div class="savings-highlight">
+                <div class="savings-badge">💡 Tipp</div>
+                <h3>Kimi K2.5 über Synthetic sparen</h3>
+                <p>Kimi K2.5 direkt: $2.00/$8.00 per 1M tokens</p>
+                <p>Kimi über Synthetic: <strong>$1.20/$4.80 per 1M tokens</strong></p>
+                <p class="savings-amount">Du sparst 40%!</p>
+                <a href="https://synthetic.run" target="_blank" class="btn btn-primary">Zum Angebot →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="deals-section" id="deals">
+        <div class="container">
+            <h2>🔥 Aktuelle Deals & Rabatte</h2>
+            <div class="deals-grid" id="deals-grid">
+                <!-- Deals will be loaded here via JS -->
+            </div>
+        </div>
+    </section>
+
+    <section class="compare-tool" id="calculator">
+        <div class="container">
+            <h2>Kosten-Rechner</h2>
+            <div class="calculator">
+                <div class="calc-inputs">
+                    <label>
+                        Input Tokens (pro Monat)
+                        <input type="number" id="input-tokens" value="1000000" min="0">
+                    </label>
+                    <label>
+                        Output Tokens (pro Monat)
+                        <input type="number" id="output-tokens" value="500000" min="0">
+                    </label>
+                </div>
+                <div class="calc-results" id="calc-results">
+                    <!-- Results will be calculated via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">🤖 AI Price Compare</div>
+                    <p>Unabhängiger Preisvergleich für AI-Modelle.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#models">Modelle</a></li>
+                        <li><a href="#deals">Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-legal">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                        <li><a href="affiliate.html">Affiliate Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 AI Price Compare. Preise können variieren.</p>
+                <p class="last-updated">Letztes Update: <span id="last-updated">-</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

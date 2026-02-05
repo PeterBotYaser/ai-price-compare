@@ -1,0 +1,300 @@
+{
+  "lastUpdated": "2025-02-05",
+  "affiliateParams": {
+    "openai": "?ref=aipricecompare",
+    "anthropic": "?via=aipricecompare",
+    "synthetic": "?ref=aipricecomp",
+    "together": "?utm_source=aipricecompare",
+    "deepseek": "?ref=aiprice",
+    "google": "?referrer=aipricecompare"
+  },
+  "models": [
+    {
+      "id": "gpt-4o",
+      "name": "GPT-4o",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 2.50,
+        "outputPer1M": 10.00,
+        "currency": "USD"
+      },
+      "features": ["Vision", "Audio", "Fast"],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "provider": "OpenAI",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 0.15,
+        "outputPer1M": 0.60,
+        "currency": "USD"
+      },
+      "features": ["Vision", "Fast", "Cheap"],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "claude-3-5-sonnet",
+      "name": "Claude 3.5 Sonnet",
+      "provider": "Anthropic",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 3.00,
+        "outputPer1M": 15.00,
+        "currency": "USD"
+      },
+      "features": ["Coding", "Long Context", "Reasoning"],
+      "affiliateUrl": "https://anthropic.com?via=aipricecompare",
+      "deals": [
+        {
+          "type": "Startup",
+          "description": "$5,000 Credits für qualifizierte Startups",
+          "url": "https://anthropic.com/startups"
+        }
+      ]
+    },
+    {
+      "id": "claude-3-5-haiku",
+      "name": "Claude 3.5 Haiku",
+      "provider": "Anthropic",
+      "category": "Balanced",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 0.80,
+        "outputPer1M": 4.00,
+        "currency": "USD"
+      },
+      "features": ["Fast", "Cost-effective"],
+      "affiliateUrl": "https://anthropic.com?via=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "kimi-k2-5",
+      "name": "Kimi K2.5",
+      "provider": "Moonshot AI",
+      "category": "Frontier",
+      "contextWindow": 256000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 2.00,
+          "outputPer1M": 8.00,
+          "currency": "USD"
+        },
+        "syntheticRoute": {
+          "provider": "Synthetic",
+          "inputPer1M": 1.20,
+          "outputPer1M": 4.80,
+          "savingsPercent": 40,
+          "url": "https://synthetic.run?ref=aipricecomp"
+        }
+      },
+      "features": ["Long Context", "Multilingual", "Coding"],
+      "affiliateUrl": "https://synthetic.run?ref=aipricecomp",
+      "deals": [
+        {
+          "type": "Route",
+          "description": "40% günstiger über Synthetic",
+          "url": "https://synthetic.run"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-v3",
+      "name": "DeepSeek V3",
+      "provider": "DeepSeek",
+      "category": "Budget",
+      "contextWindow": 64000,
+      "pricing": {
+        "inputPer1M": 0.27,
+        "outputPer1M": 1.10,
+        "currency": "USD"
+      },
+      "features": ["Very Cheap", "Good Performance"],
+      "affiliateUrl": "https://deepseek.com?ref=aiprice",
+      "deals": []
+    },
+    {
+      "id": "gemini-2-flash",
+      "name": "Gemini 2.0 Flash",
+      "provider": "Google",
+      "category": "Balanced",
+      "contextWindow": 1000000,
+      "pricing": {
+        "inputPer1M": 0.075,
+        "outputPer1M": 0.30,
+        "currency": "USD"
+      },
+      "features": ["1M Context", "Vision", "Cheap"],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "15 Anfragen/Minute kostenlos",
+          "url": "https://ai.google.dev"
+        }
+      ]
+    },
+    {
+      "id": "llama-3-3-70b",
+      "name": "Llama 3.3 70B",
+      "provider": "Meta (via Together AI)",
+      "category": "Open Source",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 0.88,
+        "outputPer1M": 0.88,
+        "currency": "USD"
+      },
+      "features": ["Open Source", "Self-hostable"],
+      "affiliateUrl": "https://together.ai?utm_source=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "o3-mini",
+      "name": "o3-mini",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 1.10,
+        "outputPer1M": 4.40,
+        "currency": "USD"
+      },
+      "features": ["Reasoning", "Coding", "STEM"],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "o1",
+      "name": "o1",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 15.00,
+        "outputPer1M": 60.00,
+        "currency": "USD"
+      },
+      "features": ["Advanced Reasoning", "Complex Tasks"],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "gemini-2-pro",
+      "name": "Gemini 2.0 Pro",
+      "provider": "Google",
+      "category": "Frontier",
+      "contextWindow": 2000000,
+      "pricing": {
+        "inputPer1M": 3.50,
+        "outputPer1M": 10.50,
+        "currency": "USD"
+      },
+      "features": ["2M Context", "Vision", "Code Execution"],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose Stufe verfügbar",
+          "url": "https://ai.google.dev"
+        }
+      ]
+    },
+    {
+      "id": "mistral-large",
+      "name": "Mistral Large 2",
+      "provider": "Mistral AI",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 2.00,
+        "outputPer1M": 6.00,
+        "currency": "USD"
+      },
+      "features": ["Multilingual", "Coding", "Function Calling"],
+      "affiliateUrl": "https://mistral.ai",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose API-Stufe verfügbar",
+          "url": "https://console.mistral.ai"
+        }
+      ]
+    },
+    {
+      "id": "qwen-2-5-72b",
+      "name": "Qwen 2.5 72B",
+      "provider": "Alibaba Cloud",
+      "category": "Open Source",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 0.35,
+        "outputPer1M": 0.70,
+        "currency": "USD"
+      },
+      "features": ["Open Source", "Multilingual", "Coding"],
+      "affiliateUrl": "https://huggingface.co/Qwen",
+      "deals": []
+    },
+    {
+      "id": "command-r-plus",
+      "name": "Command R+",
+      "provider": "Cohere",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 2.50,
+        "outputPer1M": 10.00,
+        "currency": "USD"
+      },
+      "features": ["RAG", "Enterprise", "Citation"],
+      "affiliateUrl": "https://cohere.com",
+      "deals": [
+        {
+          "type": "Trial",
+          "description": "Kostenloses Testkontingent",
+          "url": "https://cohere.com"
+        }
+      ]
+    }
+  ],
+  "deals": [
+    {
+      "id": "openai-startup",
+      "provider": "OpenAI",
+      "title": "OpenAI for Startups",
+      "description": "Bis zu $10,000 API Credits für qualifizierte Startups",
+      "discount": "Bis zu $10,000",
+      "requirements": "Startup < 2 Jahre, < $1M Funding",
+      "url": "https://openai.com/startup-program",
+      "expires": null
+    },
+    {
+      "id": "github-copilot-student",
+      "provider": "GitHub",
+      "title": "GitHub Copilot Free for Students",
+      "description": "Kostenloser Copilot Zugang mit GitHub Student Pack",
+      "discount": "100%",
+      "requirements": "Student mit .edu E-Mail",
+      "url": "https://education.github.com",
+      "expires": null
+    },
+    {
+      "id": "synthetic-bundle",
+      "provider": "Synthetic",
+      "title": "Synthetic Starter Credits",
+      "description": "$10 kostenloses Guthaben für neue Nutzer",
+      "discount": "$10 Free",
+      "requirements": "Neuer Account",
+      "url": "https://synthetic.run/signup",
+      "expires": null
+    }
+  ]
+}
