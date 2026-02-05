@@ -263,6 +263,78 @@
           "url": "https://cohere.com"
         }
       ]
+    },
+    {
+      "id": "claude-3-7-sonnet",
+      "name": "Claude 3.7 Sonnet",
+      "provider": "Anthropic",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 3.00,
+        "outputPer1M": 15.00,
+        "currency": "USD"
+      },
+      "features": ["Coding", "Reasoning", "Extended Thinking"],
+      "affiliateUrl": "https://anthropic.com?via=aipricecompare",
+      "deals": [
+        {
+          "type": "Startup",
+          "description": "$5,000 Credits für qualifizierte Startups",
+          "url": "https://anthropic.com/startups"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek R1",
+      "provider": "DeepSeek",
+      "category": "Frontier",
+      "contextWindow": 64000,
+      "pricing": {
+        "inputPer1M": 0.55,
+        "outputPer1M": 2.19,
+        "currency": "USD"
+      },
+      "features": ["Reasoning", "Chain-of-Thought", "Very Cheap"],
+      "affiliateUrl": "https://deepseek.com?ref=aiprice",
+      "deals": []
+    },
+    {
+      "id": "gemini-2-flash-thinking",
+      "name": "Gemini 2.0 Flash Thinking",
+      "provider": "Google",
+      "category": "Frontier",
+      "contextWindow": 1000000,
+      "pricing": {
+        "inputPer1M": 0.075,
+        "outputPer1M": 0.30,
+        "currency": "USD"
+      },
+      "features": ["Reasoning", "1M Context", "Vision"],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "15 Anfragen/Minute kostenlos",
+          "url": "https://ai.google.dev"
+        }
+      ]
+    },
+    {
+      "id": "gpt-4-5",
+      "name": "GPT-4.5",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 75.00,
+        "outputPer1M": 150.00,
+        "currency": "USD"
+      },
+      "features": ["Large", "Expensive", "High Quality"],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
     }
   ],
   "deals": [

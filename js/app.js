@@ -280,6 +280,45 @@ async function main() {
   renderCalculator(models, lastUpdated);
 }
 
+// Affiliate link click tracking
+function trackAffiliateClick(provider, url) {
+  // Simple analytics - can be extended to use Google Analytics, Plausible, etc.
+  const event = {
+    type: 'affiliate_click',
+    provider: provider,
+    url: url,
+    timestamp: new Date().toISOString(),
+    page: window.location.pathname
+  };
+  
+  // Log to console for now (replace with actual analytics)
+  console.log('[Affiliate Click]', event);
+  
+  // Send to analytics if gtag is available
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'affiliate_click', {
+      event_category: 'engagement',
+      event_label: provider,
+      transport_type: 'beacon'
+    });
+  }
+  
+  // Send to Plausible if available
+  if (typeof plausible !== 'undefined') {
+    plausible('Affiliate Click', { props: { provider: provider } });
+  }
+}
+
+// Add click tracking to all affiliate links
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href*="?ref="], a[href*="?via="], a[href*="?utm_source="], a[href*="?referrer="]');
+  if (link) {
+    const url = new URL(link.href);
+    const hostname = url.hostname;
+    trackAffiliateClick(hostname, link.href);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   main().catch((err) => {
     console.error(err);
