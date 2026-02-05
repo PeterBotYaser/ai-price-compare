@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-02-06",
+  "lastUpdated": "2025-02-05",
   "affiliateParams": {
     "openai": "?ref=aipricecompare",
     "anthropic": "?via=aipricecompare",
@@ -334,6 +334,36 @@
       },
       "features": ["Large", "Expensive", "High Quality"],
       "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "grok-2",
+      "name": "Grok 2",
+      "provider": "xAI",
+      "category": "Frontier",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 2.00,
+        "outputPer1M": 10.00,
+        "currency": "USD"
+      },
+      "features": ["X Integration", "Real-time", "Vision"],
+      "affiliateUrl": "https://x.ai",
+      "deals": []
+    },
+    {
+      "id": "grok-2-vision",
+      "name": "Grok 2 Vision",
+      "provider": "xAI",
+      "category": "Frontier",
+      "contextWindow": 32768,
+      "pricing": {
+        "inputPer1M": 2.00,
+        "outputPer1M": 10.00,
+        "currency": "USD"
+      },
+      "features": ["Vision", "X Integration", "Real-time"],
+      "affiliateUrl": "https://x.ai",
       "deals": []
     }
   ],

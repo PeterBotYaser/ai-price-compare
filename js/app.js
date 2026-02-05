@@ -2,6 +2,12 @@
 
 const DATA_URL = 'data/prices.json';
 
+// Comparison state
+let comparisonState = {
+  selected: new Set(),
+  maxCompare: 3
+};
+
 function money(amount, currency = 'USD') {
   if (amount == null || Number.isNaN(amount)) return '-';
   const v = Number(amount);
@@ -73,16 +79,156 @@ function calcMonthlyCost({ inputTokens, outputTokens, inputPer1M, outputPer1M })
   return inM * inputPer1M + outM * outputPer1M;
 }
 
+function toggleModelComparison(modelId, modelName, checkbox) {
+  if (comparisonState.selected.has(modelId)) {
+    comparisonState.selected.delete(modelId);
+    checkbox.checked = false;
+  } else {
+    if (comparisonState.selected.size >= comparisonState.maxCompare) {
+      alert(`Maximal ${comparisonState.maxCompare} Modelle zum Vergleich auswählbar.`);
+      checkbox.checked = false;
+      return;
+    }
+    comparisonState.selected.add(modelId);
+    checkbox.checked = true;
+  }
+  updateComparisonBar();
+}
+
+function updateComparisonBar() {
+  let bar = document.getElementById('comparison-bar');
+  if (!bar) {
+    bar = document.createElement('div');
+    bar.id = 'comparison-bar';
+    bar.className = 'comparison-bar';
+    document.body.appendChild(bar);
+  }
+  
+  const count = comparisonState.selected.size;
+  if (count === 0) {
+    bar.classList.remove('visible');
+    return;
+  }
+  
+  bar.classList.add('visible');
+  bar.innerHTML = `
+    <div class="comparison-bar-content">
+      <span class="comparison-count">${count} Modell${count > 1 ? 'e' : ''} ausgewählt</span>
+      <div class="comparison-actions">
+        <button class="btn btn-secondary" onclick="clearComparison()">Zurücksetzen</button>
+        <button class="btn btn-primary" onclick="showComparison()" ${count < 2 ? 'disabled' : ''}>Vergleichen</button>
+      </div>
+    </div>
+  `;
+}
+
+function clearComparison() {
+  comparisonState.selected.clear();
+  document.querySelectorAll('.compare-checkbox').forEach(cb => cb.checked = false);
+  updateComparisonBar();
+}
+
+function showComparison() {
+  const modal = document.getElementById('comparison-modal');
+  if (modal) {
+    renderComparisonTable();
+    modal.classList.add('visible');
+  }
+}
+
+function closeComparison() {
+  const modal = document.getElementById('comparison-modal');
+  if (modal) {
+    modal.classList.remove('visible');
+  }
+}
+
+function renderComparisonTable() {
+  const container = document.getElementById('comparison-table-container');
+  if (!container) return;
+  
+  const selectedModels = window.allModels.filter(m => comparisonState.selected.has(m.id));
+  if (selectedModels.length < 2) return;
+  
+  const features = [...new Set(selectedModels.flatMap(m => m.features || []))];
+  
+  container.innerHTML = `
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          ${selectedModels.map(m => `
+            <th>
+              <div class="comparison-header">
+                <div class="comparison-model-name">${m.name}</div>
+                <div class="comparison-model-provider">${m.provider}</div>
+                <span class="category-badge ${badgeClass(m.category)}">${m.category || ''}</span>
+              </div>
+            </th>
+          `).join('')}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feature-name">Input / 1M Tokens</td>
+          ${selectedModels.map(m => {
+            const variants = getModelPricingVariants(m);
+            const primary = variants[0];
+            return `<td>${primary ? money(primary.inputPer1M, primary.currency) : '-'}</td>`;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="feature-name">Output / 1M Tokens</td>
+          ${selectedModels.map(m => {
+            const variants = getModelPricingVariants(m);
+            const primary = variants[0];
+            return `<td>${primary ? money(primary.outputPer1M, primary.currency) : '-'}</td>`;
+          }).join('')}
+        </tr>
+        <tr>
+          <td class="feature-name">Context Window</td>
+          ${selectedModels.map(m => `<td>${m.contextWindow ? numberWithSeparators(m.contextWindow) : '-'}</td>`).join('')}
+        </tr>
+        ${features.map(feature => `
+          <tr>
+            <td class="feature-name">${feature}</td>
+            ${selectedModels.map(m => `
+              <td>${(m.features || []).includes(feature) ? '✅' : '❌'}</td>
+            `).join('')}
+          </tr>
+        `).join('')}
+        <tr>
+          <td class="feature-name">Aktion</td>
+          ${selectedModels.map(m => `
+            <td>
+              ${m.affiliateUrl ? `<a class="btn btn-primary btn-sm" href="${m.affiliateUrl}" target="_blank" rel="noopener sponsored">Zum Anbieter →</a>` : '-'}
+            </td>
+          `).join('')}
+        </tr>
+      </tbody>
+    </table>
+  `;
+}
+
 function renderModelCard(model) {
   const card = document.createElement('div');
   card.className = 'model-card';
   card.dataset.category = model.category || '';
+  card.dataset.modelId = model.id;
 
   const variants = getModelPricingVariants(model);
   const primary = variants[0] || null;
   const alt = variants.length > 1 ? variants[1] : null;
 
+  const isSelected = comparisonState.selected.has(model.id);
+  
   card.innerHTML = `
+    <div class="model-compare">
+      <label class="compare-label">
+        <input type="checkbox" class="compare-checkbox" ${isSelected ? 'checked' : ''}>
+        <span>Vergleichen</span>
+      </label>
+    </div>
     <div class="model-header">
       <div>
         <div class="model-name">${model.name}</div>
@@ -132,6 +278,13 @@ function renderModelCard(model) {
         .join('\n');
       const extra = model.deals?.length ? `\n\nDeals:\n- ${model.deals.map(d => d.description).join('\n- ')}` : '';
       alert(`${model.name}\n\n${variantsText}${extra}`);
+    });
+  }
+
+  const compareCheckbox = card.querySelector('.compare-checkbox');
+  if (compareCheckbox) {
+    compareCheckbox.addEventListener('change', () => {
+      toggleModelComparison(model.id, model.name, compareCheckbox);
     });
   }
 
@@ -251,8 +404,30 @@ function renderCalculator(models, lastUpdated) {
   update();
 }
 
+function createComparisonModal() {
+  if (document.getElementById('comparison-modal')) return;
+  
+  const modal = document.createElement('div');
+  modal.id = 'comparison-modal';
+  modal.className = 'comparison-modal';
+  modal.innerHTML = `
+    <div class="comparison-modal-overlay" onclick="closeComparison()"></div>
+    <div class="comparison-modal-content">
+      <div class="comparison-modal-header">
+        <h2>Modelle vergleichen</h2>
+        <button class="comparison-modal-close" onclick="closeComparison()">×</button>
+      </div>
+      <div class="comparison-modal-body">
+        <div id="comparison-table-container"></div>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
 async function main() {
   setupFilters();
+  createComparisonModal();
 
   const res = await fetch(DATA_URL, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load ${DATA_URL}: ${res.status}`);
@@ -264,6 +439,9 @@ async function main() {
 
   const models = Array.isArray(data.models) ? data.models : [];
   const deals = Array.isArray(data.deals) ? data.deals : [];
+  
+  // Store models globally for comparison
+  window.allModels = models;
 
   const modelsGrid = document.getElementById('models-grid');
   if (modelsGrid) {
