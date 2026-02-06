@@ -52,7 +52,7 @@
                 <ul class="nav-links">
                     <li><a href="#models">Modelle</a></li>
                     <li><a href="#deals">Deals</a></li>
-                    <li><a href="#about">Über</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
                     <li><a href="/en/" class="lang-switch">🇬🇧 EN</a></li>
                 </ul>
             </nav>
@@ -150,6 +150,33 @@
                 <div class="calc-results" id="calc-results">
                     <!-- Results will be calculated via JS -->
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h2>📧 Preis-Änderungen verpassen?</h2>
+                    <p>Erhalte wöchentlich die neuesten AI-Preisupdates, Deals und Spartipps direkt in dein Postfach.</p>
+                    <ul class="newsletter-benefits">
+                        <li>✅ Aktuelle Preisänderungen aller Modelle</li>
+                        <li>🔥 Neue Deals & Rabatte</li>
+                        <li>💡 Günstige Routen & Spartipps</li>
+                        <li>📊 Marktübersicht & Trends</li>
+                    </ul>
+                </div>
+                <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/xldglwpj" method="POST">
+                    <div class="form-group">
+                        <input type="email" name="email" id="newsletter-email" placeholder="deine@email.de" required>
+                        <input type="hidden" name="lang" value="de">
+                        <input type="hidden" name="source" value="aipricecompare.com">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">Kostenlos abonnieren</button>
+                    <p class="form-note">Kein Spam. Jederzeit abmeldbar. Datenschutz beachtet.</p>
+                    <div id="newsletter-status" class="newsletter-status"></div>
+                </form>
             </div>
         </div>
     </section>

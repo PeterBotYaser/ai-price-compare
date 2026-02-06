@@ -636,6 +636,82 @@ document.addEventListener('click', (e) => {
   }
 });
 
+// Newsletter form handling
+function setupNewsletterForm() {
+  const form = document.getElementById('newsletter-form');
+  const statusEl = document.getElementById('newsletter-status');
+  
+  if (!form) return;
+  
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = form.querySelector('input[name="email"]').value;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    
+    // Validate email
+    if (!email || !email.includes('@')) {
+      showNewsletterStatus('error', isEnglish ? 'Please enter a valid email address.' : 'Bitte gib eine gültige E-Mail-Adresse ein.');
+      return;
+    }
+    
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = isEnglish ? 'Subscribing...' : 'Wird abonniert...';
+    statusEl.className = 'newsletter-status';
+    statusEl.style.display = 'none';
+    
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        showNewsletterStatus('success', isEnglish 
+          ? '✅ Successfully subscribed! Check your email for confirmation.' 
+          : '✅ Erfolgreich abonniert! Prüfe deine E-Mails für die Bestätigung.');
+        form.reset();
+        
+        // Track conversion
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'newsletter_signup', {
+            event_category: 'engagement',
+            event_label: 'newsletter_de'
+          });
+        }
+        if (typeof plausible !== 'undefined') {
+          plausible('Newsletter Signup');
+        }
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      showNewsletterStatus('error', isEnglish 
+        ? '❌ Something went wrong. Please try again later.' 
+        : '❌ Etwas ist schief gelaufen. Bitte versuche es später nochmal.');
+      console.error('Newsletter signup error:', error);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+}
+
+function showNewsletterStatus(type, message) {
+  const statusEl = document.getElementById('newsletter-status');
+  if (!statusEl) return;
+  
+  statusEl.textContent = message;
+  statusEl.className = `newsletter-status ${type}`;
+  statusEl.style.display = 'block';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   main().catch((err) => {
     console.error(err);
@@ -644,4 +720,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modelsGrid.innerHTML = `<div class="model-card"><div class="model-name">${t('errorLoading')}</div><div class="model-provider">${String(err.message || err)}</div></div>`;
     }
   });
+  
+  setupNewsletterForm();
 });

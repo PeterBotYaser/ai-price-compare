@@ -36,9 +36,9 @@ Eine Übersichts-Plattform, die zeigt:
 - [x] Vergleichs-Feature implementiert
 - [x] Kosten-Rechner implementiert
 - [x] OpenRouter als günstige Route hinzugefügt
-- [ ] Automatische Preis-Updates via API
-- [ ] Newsletter für Preisänderungen
-- [ ] Mehr Sprachen (EN)
+- [x] Automatische Preis-Updates via API
+- [x] Newsletter für Preisänderungen
+- [x] Mehr Sprachen (EN)
 
 ## API Routen (Günstige Alternativen)
 
