@@ -2,6 +2,75 @@
 
 const DATA_URL = 'data/prices.json';
 
+// Language detection (defaults to German)
+const LANG = (typeof window !== 'undefined' && window.APP_LANG) || document.documentElement.lang || 'de';
+const isEnglish = LANG.startsWith('en');
+
+// i18n translations
+const i18n = {
+  de: {
+    compare: 'Vergleichen',
+    compareMax: (n) => `Maximal ${n} Modelle zum Vergleich auswählbar.`,
+    selected: (n) => `${n} Modell${n > 1 ? 'e' : ''} ausgewählt`,
+    reset: 'Zurücksetzen',
+    compareBtn: 'Vergleichen',
+    inputPer1M: 'Input / 1M',
+    outputPer1M: 'Output / 1M',
+    price: 'Preis',
+    contextWindow: 'Context Window',
+    action: 'Aktion',
+    toProvider: 'Zum Anbieter →',
+    providerBtn: 'Anbieter',
+    routeBtn: 'Route',
+    detailsBtn: 'Details',
+    alternativeRoute: 'Alternative Route',
+    calcTitle: (inTok, outTok, date) => `Geschätzte Monatskosten (${inTok} in / ${outTok} out)${date ? ` • Datenstand: ${date}` : ''}`,
+    calcNote: 'Hinweis: Token-Kosten sind modell- und anbieterabhängig; Preise können sich ändern.',
+    model: 'Modell',
+    route: 'Route',
+    costs: 'Kosten',
+    errorLoading: 'Fehler beim Laden',
+    compareTitle: 'Modelle vergleichen',
+    dealRequirements: 'Voraussetzungen',
+    toDeal: 'Zum Deal →',
+    direct: 'Direkt'
+  },
+  en: {
+    compare: 'Compare',
+    compareMax: (n) => `Maximum ${n} models can be selected for comparison.`,
+    selected: (n) => `${n} model${n > 1 ? 's' : ''} selected`,
+    reset: 'Reset',
+    compareBtn: 'Compare',
+    inputPer1M: 'Input / 1M',
+    outputPer1M: 'Output / 1M',
+    price: 'Price',
+    contextWindow: 'Context Window',
+    action: 'Action',
+    toProvider: 'Visit Provider →',
+    providerBtn: 'Provider',
+    routeBtn: 'Route',
+    detailsBtn: 'Details',
+    alternativeRoute: 'Alternative Route',
+    calcTitle: (inTok, outTok, date) => `Estimated Monthly Costs (${inTok} in / ${outTok} out)${date ? ` • Updated: ${date}` : ''}`,
+    calcNote: 'Note: Token costs vary by model and provider; prices may change.',
+    model: 'Model',
+    route: 'Route',
+    costs: 'Cost',
+    errorLoading: 'Error loading data',
+    compareTitle: 'Compare Models',
+    dealRequirements: 'Requirements',
+    toDeal: 'Get Deal →',
+    direct: 'Direct'
+  }
+};
+
+const t = (key, ...args) => {
+  const lang = isEnglish ? 'en' : 'de';
+  const val = i18n[lang][key];
+  if (typeof val === 'function') return val(...args);
+  return val || key;
+};
+
 // Comparison state
 let comparisonState = {
   selected: new Set(),
@@ -54,7 +123,7 @@ function getModelPricingVariants(model) {
   // Direct route
   if (p.direct?.inputPer1M != null && p.direct?.outputPer1M != null) {
     variants.push({
-      label: 'Direkt',
+      label: t('direct'),
       inputPer1M: Number(p.direct.inputPer1M),
       outputPer1M: Number(p.direct.outputPer1M),
       currency: p.direct.currency || 'USD',
@@ -102,7 +171,7 @@ function toggleModelComparison(modelId, modelName, checkbox) {
     checkbox.checked = false;
   } else {
     if (comparisonState.selected.size >= comparisonState.maxCompare) {
-      alert(`Maximal ${comparisonState.maxCompare} Modelle zum Vergleich auswählbar.`);
+      alert(t('compareMax', comparisonState.maxCompare));
       checkbox.checked = false;
       return;
     }
@@ -130,10 +199,10 @@ function updateComparisonBar() {
   bar.classList.add('visible');
   bar.innerHTML = `
     <div class="comparison-bar-content">
-      <span class="comparison-count">${count} Modell${count > 1 ? 'e' : ''} ausgewählt</span>
+      <span class="comparison-count">${t('selected', count)}</span>
       <div class="comparison-actions">
-        <button class="btn btn-secondary" onclick="clearComparison()">Zurücksetzen</button>
-        <button class="btn btn-primary" onclick="showComparison()" ${count < 2 ? 'disabled' : ''}>Vergleichen</button>
+        <button class="btn btn-secondary" onclick="clearComparison()">${t('reset')}</button>
+        <button class="btn btn-primary" onclick="showComparison()" ${count < 2 ? 'disabled' : ''}>${t('compareBtn')}</button>
       </div>
     </div>
   `;
@@ -215,10 +284,10 @@ function renderComparisonTable() {
           </tr>
         `).join('')}
         <tr>
-          <td class="feature-name">Aktion</td>
+          <td class="feature-name">${t('action')}</td>
           ${selectedModels.map(m => `
             <td>
-              ${m.affiliateUrl ? `<a class="btn btn-primary btn-sm" href="${m.affiliateUrl}" target="_blank" rel="noopener sponsored">Zum Anbieter →</a>` : '-'}
+              ${m.affiliateUrl ? `<a class="btn btn-primary btn-sm" href="${m.affiliateUrl}" target="_blank" rel="noopener sponsored">${t('toProvider')}</a>` : '-'}
             </td>
           `).join('')}
         </tr>
@@ -243,7 +312,7 @@ function renderModelCard(model) {
     <div class="model-compare">
       <label class="compare-label">
         <input type="checkbox" class="compare-checkbox" ${isSelected ? 'checked' : ''}>
-        <span>Vergleichen</span>
+        <span>${t('compare')}</span>
       </label>
     </div>
     <div class="model-header">
@@ -257,18 +326,18 @@ function renderModelCard(model) {
     <div class="model-pricing">
       ${primary ? `
         <div class="price-row">
-          <span class="price-label">Input / 1M</span>
+          <span class="price-label">${t('inputPer1M')}</span>
           <span class="price-value">${money(primary.inputPer1M, primary.currency)}</span>
         </div>
         <div class="price-row">
-          <span class="price-label">Output / 1M</span>
+          <span class="price-label">${t('outputPer1M')}</span>
           <span class="price-value">${money(primary.outputPer1M, primary.currency)}</span>
         </div>
-      ` : '<div class="price-row"><span class="price-label">Preis</span><span class="price-value">-</span></div>'}
+      ` : `<div class="price-row"><span class="price-label">${t('price')}</span><span class="price-value">-</span></div>`}
 
       ${alt ? `
         <div class="savings-highlight-box">
-          <div class="savings-label">Alternative Route</div>
+          <div class="savings-label">${t('alternativeRoute')}</div>
           <div class="savings-text">
             ${alt.label}: ${money(alt.inputPer1M, alt.currency)} / ${money(alt.outputPer1M, alt.currency)}
             ${alt.savingsPercent != null ? ` • <span class="price-value savings">-${alt.savingsPercent}%</span>` : ''}
@@ -282,8 +351,8 @@ function renderModelCard(model) {
     </div>
 
     <div class="model-footer">
-      ${model.affiliateUrl ? `<a class="btn btn-primary" href="${model.affiliateUrl}" target="_blank" rel="noopener sponsored">Anbieter</a>` : `<span class="btn btn-primary" aria-disabled="true">Anbieter</span>`}
-      ${alt?.url ? `<a class="btn btn-secondary" href="${alt.url}" target="_blank" rel="noopener sponsored">Route</a>` : `<button class="btn btn-secondary" type="button" data-action="details">Details</button>`}
+      ${model.affiliateUrl ? `<a class="btn btn-primary" href="${model.affiliateUrl}" target="_blank" rel="noopener sponsored">${t('providerBtn')}</a>` : `<span class="btn btn-primary" aria-disabled="true">${t('providerBtn')}</span>`}
+      ${alt?.url ? `<a class="btn btn-secondary" href="${alt.url}" target="_blank" rel="noopener sponsored">${t('routeBtn')}</a>` : `<button class="btn btn-secondary" type="button" data-action="details">${t('detailsBtn')}</button>`}
     </div>
   `;
 
@@ -321,8 +390,8 @@ function renderDealCard(deal) {
     <h3>${deal.title}</h3>
     <p>${deal.description}</p>
     ${deal.discount ? `<div class="deal-discount">${deal.discount}</div>` : ''}
-    ${deal.requirements ? `<div class="deal-requirements">Voraussetzungen: ${deal.requirements}</div>` : ''}
-    ${deal.url ? `<div style="margin-top:16px"><a class="btn btn-primary" href="${deal.url}" target="_blank" rel="noopener" style="display:inline-block;max-width:220px">Zum Deal →</a></div>` : ''}
+    ${deal.requirements ? `<div class="deal-requirements">${t('dealRequirements')}: ${deal.requirements}</div>` : ''}
+    ${deal.url ? `<div style="margin-top:16px"><a class="btn btn-primary" href="${deal.url}" target="_blank" rel="noopener" style="display:inline-block;max-width:220px">${t('toDeal')}</a></div>` : ''}
   `;
 
   return card;
@@ -441,14 +510,14 @@ function renderCalculator(models, lastUpdated) {
     const bestId = rows[0]?.id;
 
     resultsEl.innerHTML = `
-      <h3>Geschätzte Monatskosten (${numberWithSeparators(inputTokens)} in / ${numberWithSeparators(outputTokens)} out) ${lastUpdated ? `• Datenstand: ${lastUpdated}` : ''}</h3>
+      <h3>${t('calcTitle', numberWithSeparators(inputTokens), numberWithSeparators(outputTokens), lastUpdated)}</h3>
       <div style="overflow:auto">
         <table class="calc-table">
           <thead>
             <tr>
-              <th>Model</th>
-              <th>Route</th>
-              <th>Kosten</th>
+              <th>${t('model')}</th>
+              <th>${t('route')}</th>
+              <th>${t('costs')}</th>
             </tr>
           </thead>
           <tbody>
@@ -463,7 +532,7 @@ function renderCalculator(models, lastUpdated) {
         </table>
       </div>
       <p style="margin-top:12px;color:var(--text-muted);font-size:0.875rem">
-        Hinweis: Token-Kosten sind modell- und anbieterabhängig; Preise können sich ändern.
+        ${t('calcNote')}
       </p>
     `;
   };
@@ -483,7 +552,7 @@ function createComparisonModal() {
     <div class="comparison-modal-overlay" onclick="closeComparison()"></div>
     <div class="comparison-modal-content">
       <div class="comparison-modal-header">
-        <h2>Modelle vergleichen</h2>
+        <h2>${t('compareTitle')}</h2>
         <button class="comparison-modal-close" onclick="closeComparison()">×</button>
       </div>
       <div class="comparison-modal-body">
@@ -572,7 +641,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error(err);
     const modelsGrid = document.getElementById('models-grid');
     if (modelsGrid) {
-      modelsGrid.innerHTML = `<div class="model-card"><div class="model-name">Fehler beim Laden</div><div class="model-provider">${String(err.message || err)}</div></div>`;
+      modelsGrid.innerHTML = `<div class="model-card"><div class="model-name">${t('errorLoading')}</div><div class="model-provider">${String(err.message || err)}</div></div>`;
     }
   });
 });

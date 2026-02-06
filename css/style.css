@@ -893,3 +893,86 @@ body {
         padding: 12px 8px;
     }
 }
+
+/* Language Switcher */
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: var(--bg-lighter);
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.lang-switch:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Routes Section */
+.routes-section {
+    padding: 60px 0;
+    background: var(--bg-light);
+}
+
+.routes-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.routes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.route-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.route-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.route-card.highlight {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+}
+
+.route-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.route-card h3 {
+    margin-bottom: 8px;
+}
+
+.route-card p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.route-savings {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--success), var(--secondary));
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.route-card .btn {
+    width: 100%;
+}
