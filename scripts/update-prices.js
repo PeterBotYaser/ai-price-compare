@@ -32,10 +32,15 @@ const OPENROUTER_MAPPINGS = {
   'deepseek/deepseek-r1': 'deepseek-r1',
   'meta-llama/llama-3.3-70b-instruct': 'llama-3-3-70b',
   'mistralai/mistral-large': 'mistral-large',
+  'mistralai/mistral-small-24b-instruct-2501': 'mistral-small-3',
   'qwen/qwen-2.5-72b-instruct': 'qwen-2-5-72b',
   'x-ai/grok-2': 'grok-2',
   'x-ai/grok-2-vision': 'grok-2-vision',
   'cohere/command-r-plus': 'command-r-plus',
+  'cohere/command-a': 'cohere-command-a',
+  'perplexity/sonar': 'perplexity-sonar',
+  'perplexity/sonar-pro': 'perplexity-sonar-pro',
+  'microsoft/phi-4': 'microsoft-phi-4',
 };
 
 // Models that need manual price updates (not on OpenRouter or different pricing)
