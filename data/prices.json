@@ -1,13 +1,35 @@
 {
-  "lastUpdated": "2025-02-05",
+  "lastUpdated": "2025-02-06",
   "affiliateParams": {
     "openai": "?ref=aipricecompare",
     "anthropic": "?via=aipricecompare",
     "synthetic": "?ref=aipricecomp",
     "together": "?utm_source=aipricecompare",
     "deepseek": "?ref=aiprice",
-    "google": "?referrer=aipricecompare"
+    "google": "?referrer=aipricecompare",
+    "openrouter": "?ref=aipricecompare"
   },
+  "routes": [
+    {
+      "id": "direct",
+      "name": "Direkt",
+      "description": "Direkt beim Anbieter"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "description": "API-Aggregator mit Preisvorteilen",
+      "url": "https://openrouter.ai?ref=aipricecompare",
+      "savings": "Bis zu 50% günstiger"
+    },
+    {
+      "id": "synthetic",
+      "name": "Synthetic",
+      "description": "Günstige europäische Alternative",
+      "url": "https://synthetic.run?ref=aipricecomp",
+      "savings": "Bis zu 40% günstiger"
+    }
+  ],
   "models": [
     {
       "id": "gpt-4o",
@@ -16,9 +38,18 @@
       "category": "Frontier",
       "contextWindow": 128000,
       "pricing": {
-        "inputPer1M": 2.50,
-        "outputPer1M": 10.00,
-        "currency": "USD"
+        "direct": {
+          "inputPer1M": 2.50,
+          "outputPer1M": 10.00,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 2.50,
+          "outputPer1M": 10.00,
+          "currency": "USD",
+          "url": "https://openrouter.ai/openai/gpt-4o?ref=aipricecompare"
+        }
       },
       "features": ["Vision", "Audio", "Fast"],
       "affiliateUrl": "https://openai.com?ref=aipricecompare",
@@ -46,9 +77,18 @@
       "category": "Frontier",
       "contextWindow": 200000,
       "pricing": {
-        "inputPer1M": 3.00,
-        "outputPer1M": 15.00,
-        "currency": "USD"
+        "direct": {
+          "inputPer1M": 3.00,
+          "outputPer1M": 15.00,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 3.00,
+          "outputPer1M": 15.00,
+          "currency": "USD",
+          "url": "https://openrouter.ai/anthropic/claude-3.5-sonnet?ref=aipricecompare"
+        }
       },
       "features": ["Coding", "Long Context", "Reasoning"],
       "affiliateUrl": "https://anthropic.com?via=aipricecompare",
@@ -396,6 +436,27 @@
       "discount": "$10 Free",
       "requirements": "Neuer Account",
       "url": "https://synthetic.run/signup",
+      "expires": null
+    },
+    {
+      "id": "openrouter-credits",
+      "provider": "OpenRouter",
+      "title": "OpenRouter API Credits",
+      "description": "Einmaliges Startguthaben für neue API-Nutzer",
+      "discount": "Bonus Credits",
+      "requirements": "Neuer Account",
+      "url": "https://openrouter.ai?ref=aipricecompare",
+      "expires": null,
+      "featured": true
+    },
+    {
+      "id": "google-startup",
+      "provider": "Google Cloud",
+      "title": "Google Cloud AI Startup Program",
+      "description": "$350,000 Cloud Credits über 2 Jahre für AI-Startups",
+      "discount": "$350,000",
+      "requirements": "Seed-Stage Startup, VC-funded",
+      "url": "https://cloud.google.com/startup",
       "expires": null
     }
   ]

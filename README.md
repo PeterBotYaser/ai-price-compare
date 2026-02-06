@@ -27,19 +27,35 @@ Eine Übersichts-Plattform, die zeigt:
 - Automatische Updates via API/Scraping
 
 ## To-Do
-- [ ] Affiliate-Programme recherchieren
-- [ ] Preis-Datenbank erstellen
-- [ ] Landing Page bauen
-- [ ] Erste 5 Modelle eintragen
-- [ ] Affiliate-Tracking implementieren
+- [x] Affiliate-Programme recherchieren
+- [x] Preis-Datenbank erstellen
+- [x] Landing Page bauen
+- [x] Erste 5 Modelle eintragen
+- [x] Affiliate-Tracking implementieren
+- [x] 19+ Modelle eingetragen
+- [x] Vergleichs-Feature implementiert
+- [x] Kosten-Rechner implementiert
+- [x] OpenRouter als günstige Route hinzugefügt
+- [ ] Automatische Preis-Updates via API
+- [ ] Newsletter für Preisänderungen
+- [ ] Mehr Sprachen (EN)
+
+## API Routen (Günstige Alternativen)
+
+| Route | Beschreibung | Ersparnis |
+|-------|--------------|-----------|
+| **Direkt** | Direkt beim Anbieter (OpenAI, Anthropic, etc.) | - |
+| **OpenRouter** | API-Aggregator mit Mengenrabatten | Bis zu 50% |
+| **Synthetic** | Europäischer Provider, günstige Kimi-Preise | Bis zu 40% |
 
 ## Affiliate Programme
 | Anbieter | Programm | Kommission | Status |
 |----------|----------|------------|--------|
-| OpenAI | ? | ? | pending |
-| Anthropic | ? | ? | pending |
-| Synthetic | ? | ? | pending |
-| Together AI | ? | ? | pending |
+| OpenAI | Referral Program | variabel | pending |
+| Anthropic | Partner Program | variabel | pending |
+| Synthetic | Referral | 10% | active |
+| Together AI | Credits Program | variabel | pending |
+| OpenRouter | Referral | 5% | active |
 
 ## Ziel
 Innerhalb 3 Monate: €500+/Monat Umsatz

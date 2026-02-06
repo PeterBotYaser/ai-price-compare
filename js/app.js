@@ -36,7 +36,7 @@ function getModelPricingVariants(model) {
   const p = model?.pricing;
   if (!p) return [];
 
-  // Simple format
+  // Simple format (legacy support)
   if (p.inputPer1M != null && p.outputPer1M != null) {
     return [{
       label: model.provider,
@@ -48,8 +48,10 @@ function getModelPricingVariants(model) {
     }];
   }
 
-  // Route format (direct + alternative)
+  // Route format (direct + alternatives)
   const variants = [];
+  
+  // Direct route
   if (p.direct?.inputPer1M != null && p.direct?.outputPer1M != null) {
     variants.push({
       label: 'Direkt',
@@ -60,9 +62,11 @@ function getModelPricingVariants(model) {
       savingsPercent: null,
     });
   }
+  
+  // Synthetic route
   if (p.syntheticRoute?.inputPer1M != null && p.syntheticRoute?.outputPer1M != null) {
     variants.push({
-      label: p.syntheticRoute.provider || 'Route',
+      label: p.syntheticRoute.provider || 'Synthetic',
       inputPer1M: Number(p.syntheticRoute.inputPer1M),
       outputPer1M: Number(p.syntheticRoute.outputPer1M),
       currency: p.direct?.currency || p.syntheticRoute.currency || 'USD',
@@ -70,6 +74,19 @@ function getModelPricingVariants(model) {
       savingsPercent: p.syntheticRoute.savingsPercent ?? null,
     });
   }
+  
+  // OpenRouter route
+  if (p.openrouter?.inputPer1M != null && p.openrouter?.outputPer1M != null) {
+    variants.push({
+      label: 'OpenRouter',
+      inputPer1M: Number(p.openrouter.inputPer1M),
+      outputPer1M: Number(p.openrouter.outputPer1M),
+      currency: p.openrouter.currency || 'USD',
+      url: p.openrouter.url || null,
+      savingsPercent: p.openrouter.savingsPercent ?? null,
+    });
+  }
+  
   return variants;
 }
 
