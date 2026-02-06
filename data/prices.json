@@ -558,6 +558,123 @@
       ],
       "affiliateUrl": "https://x.ai",
       "deals": []
+    },
+    {
+      "id": "amazon-nova-pro",
+      "name": "Amazon Nova Pro",
+      "provider": "Amazon Bedrock",
+      "category": "Frontier",
+      "contextWindow": 300000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.8,
+          "outputPer1M": 3.2,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "Vision",
+        "Tool Use",
+        "Streaming"
+      ],
+      "affiliateUrl": "https://aws.amazon.com/bedrock",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "12 Monate Free Tier für neue AWS-Kunden",
+          "url": "https://aws.amazon.com/free"
+        }
+      ]
+    },
+    {
+      "id": "amazon-nova-micro",
+      "name": "Amazon Nova Micro",
+      "provider": "Amazon Bedrock",
+      "category": "Budget",
+      "contextWindow": 128000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.035,
+          "outputPer1M": 0.14,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "Fast",
+        "Very Cheap",
+        "Streaming"
+      ],
+      "affiliateUrl": "https://aws.amazon.com/bedrock",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "12 Monate Free Tier für neue AWS-Kunden",
+          "url": "https://aws.amazon.com/free"
+        }
+      ]
+    },
+    {
+      "id": "cohere-command-a",
+      "name": "Command A",
+      "provider": "Cohere",
+      "category": "Frontier",
+      "contextWindow": 256000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 2.5,
+          "outputPer1M": 10,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 2.5,
+          "outputPer1M": 10,
+          "currency": "USD",
+          "url": "https://openrouter.ai/cohere/command-a?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "RAG",
+        "Enterprise",
+        "Citation",
+        "Tool Use"
+      ],
+      "affiliateUrl": "https://cohere.com",
+      "deals": [
+        {
+          "type": "Trial",
+          "description": "Kostenloses Testkontingent",
+          "url": "https://cohere.com"
+        }
+      ]
+    },
+    {
+      "id": "gemini-2-flash-lite",
+      "name": "Gemini 2.0 Flash-Lite",
+      "provider": "Google",
+      "category": "Budget",
+      "contextWindow": 1000000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.075,
+          "outputPer1M": 0.3,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "1M Context",
+        "Vision",
+        "Very Cheap",
+        "Fast"
+      ],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "15 Anfragen/Minute kostenlos",
+          "url": "https://ai.google.dev"
+        }
+      ]
     }
   ],
   "deals": [
@@ -610,6 +727,27 @@
       "discount": "$350,000",
       "requirements": "Seed-Stage Startup, VC-funded",
       "url": "https://cloud.google.com/startup",
+      "expires": null
+    },
+    {
+      "id": "amazon-bedrock-free",
+      "provider": "Amazon Bedrock",
+      "title": "Amazon Bedrock Free Tier",
+      "description": "12 Monate kostenloser Zugriff auf Nova Modelle",
+      "discount": "12 Monate",
+      "requirements": "Neuer AWS-Kunde",
+      "url": "https://aws.amazon.com/free",
+      "expires": null,
+      "featured": true
+    },
+    {
+      "id": "cohere-trial",
+      "provider": "Cohere",
+      "title": "Command A Early Access",
+      "description": "Früher Zugriff auf das neue Command A Modell",
+      "discount": "Early Access",
+      "requirements": "Entwickler-Account",
+      "url": "https://cohere.com/command-a",
       "expires": null
     }
   ]

@@ -32,13 +32,14 @@ Eine Übersichts-Plattform, die zeigt:
 - [x] Landing Page bauen
 - [x] Erste 5 Modelle eintragen
 - [x] Affiliate-Tracking implementieren
-- [x] 19+ Modelle eingetragen
+- [x] 24+ Modelle eingetragen
 - [x] Vergleichs-Feature implementiert
 - [x] Kosten-Rechner implementiert
 - [x] OpenRouter als günstige Route hinzugefügt
 - [x] Automatische Preis-Updates via API
 - [x] Newsletter für Preisänderungen
 - [x] Mehr Sprachen (EN)
+- [x] Neue Modelle (Amazon Nova, Command A, Gemini Flash-Lite)
 
 ## API Routen (Günstige Alternativen)
 
