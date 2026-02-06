@@ -311,16 +311,68 @@ function renderDealCard(deal) {
   return card;
 }
 
+let currentSearchQuery = '';
+let currentCategoryFilter = 'all';
+
 function applyFilter(category) {
+  currentCategoryFilter = category;
+  filterModels();
+}
+
+function applySearch(query) {
+  currentSearchQuery = query.toLowerCase().trim();
+  filterModels();
+}
+
+function filterModels() {
   const cards = document.querySelectorAll('.model-card');
+  const noResultsEl = document.getElementById('no-results');
+  let visibleCount = 0;
+
   cards.forEach((card) => {
-    if (category === 'all') {
+    const category = card.dataset.category || '';
+    const modelName = card.querySelector('.model-name')?.textContent?.toLowerCase() || '';
+    const provider = card.querySelector('.model-provider')?.textContent?.toLowerCase() || '';
+    const features = Array.from(card.querySelectorAll('.feature-tag')).map(f => f.textContent.toLowerCase()).join(' ');
+    
+    // Category filter
+    const categoryMatch = currentCategoryFilter === 'all' || category === currentCategoryFilter;
+    
+    // Search filter
+    const searchMatch = !currentSearchQuery || 
+      modelName.includes(currentSearchQuery) || 
+      provider.includes(currentSearchQuery) || 
+      features.includes(currentSearchQuery);
+    
+    if (categoryMatch && searchMatch) {
       card.classList.remove('hidden');
-      return;
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
     }
-    const c = card.dataset.category || '';
-    if (c === category) card.classList.remove('hidden');
-    else card.classList.add('hidden');
+  });
+
+  // Show/hide no results message
+  if (noResultsEl) {
+    noResultsEl.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
+function setupSearch() {
+  const searchInput = document.getElementById('model-search');
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', (e) => {
+    applySearch(e.target.value);
+  });
+
+  // Clear search on Escape key
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      applySearch('');
+      searchInput.blur();
+    }
   });
 }
 
@@ -427,6 +479,7 @@ function createComparisonModal() {
 
 async function main() {
   setupFilters();
+  setupSearch();
   createComparisonModal();
 
   const res = await fetch(DATA_URL, { cache: 'no-store' });

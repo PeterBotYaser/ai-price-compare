@@ -81,6 +81,10 @@
 
     <section class="filters" id="models">
         <div class="container">
+            <div class="search-box">
+                <input type="text" id="model-search" placeholder="Modell suchen (z.B. GPT-4, Claude, Vision...)" autocomplete="off">
+                <span class="search-icon">🔍</span>
+            </div>
             <div class="filter-bar">
                 <button class="filter-btn active" data-filter="all">Alle</button>
                 <button class="filter-btn" data-filter="Frontier">Frontier</button>
@@ -97,6 +101,11 @@
             <p class="section-subtitle">Preise pro 1M Tokens (Input/Output)</p>
             <div class="models-grid" id="models-grid">
                 <!-- Models will be loaded here via JS -->
+            </div>
+            <div id="no-results" class="no-results" style="display: none;">
+                <div class="no-results-icon">🔍</div>
+                <h3>Keine Modelle gefunden</h3>
+                <p>Probiere einen anderen Suchbegriff oder Filter.</p>
             </div>
         </div>
     </section>
