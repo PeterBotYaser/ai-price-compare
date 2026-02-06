@@ -675,6 +675,152 @@
           "url": "https://ai.google.dev"
         }
       ]
+    },
+    {
+      "id": "perplexity-sonar",
+      "name": "Perplexity Sonar",
+      "provider": "Perplexity",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 1,
+          "outputPer1M": 1,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 1,
+          "outputPer1M": 1,
+          "currency": "USD",
+          "url": "https://openrouter.ai/perplexity/sonar?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Web Search",
+        "Citations",
+        "Real-time"
+      ],
+      "affiliateUrl": "https://perplexity.ai",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose Stufe mit Limits verfügbar",
+          "url": "https://perplexity.ai"
+        }
+      ]
+    },
+    {
+      "id": "perplexity-sonar-pro",
+      "name": "Perplexity Sonar Pro",
+      "provider": "Perplexity",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 3,
+          "outputPer1M": 15,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 3,
+          "outputPer1M": 15,
+          "currency": "USD",
+          "url": "https://openrouter.ai/perplexity/sonar-pro?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Advanced Search",
+        "Citations",
+        "Deep Research"
+      ],
+      "affiliateUrl": "https://perplexity.ai",
+      "deals": []
+    },
+    {
+      "id": "mistral-small-3",
+      "name": "Mistral Small 3",
+      "provider": "Mistral AI",
+      "category": "Budget",
+      "contextWindow": 128000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.1,
+          "outputPer1M": 0.3,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.1,
+          "outputPer1M": 0.3,
+          "currency": "USD",
+          "url": "https://openrouter.ai/mistralai/mistral-small-24b-instruct-2501?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Fast",
+        "Very Cheap",
+        "Function Calling"
+      ],
+      "affiliateUrl": "https://mistral.ai",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose API-Stufe verfügbar",
+          "url": "https://console.mistral.ai"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-phi-4",
+      "name": "Phi-4",
+      "provider": "Microsoft",
+      "category": "Balanced",
+      "contextWindow": 16000,
+      "pricing": {
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.07,
+          "outputPer1M": 0.14,
+          "currency": "USD",
+          "url": "https://openrouter.ai/microsoft/phi-4?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Open Source",
+        "Reasoning",
+        "Coding"
+      ],
+      "affiliateUrl": "https://azure.microsoft.com",
+      "deals": []
+    },
+    {
+      "id": "amazon-nova-lite",
+      "name": "Amazon Nova Lite",
+      "provider": "Amazon Bedrock",
+      "category": "Budget",
+      "contextWindow": 300000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.06,
+          "outputPer1M": 0.24,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "Vision",
+        "Very Cheap",
+        "Streaming"
+      ],
+      "affiliateUrl": "https://aws.amazon.com/bedrock",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "12 Monate Free Tier für neue AWS-Kunden",
+          "url": "https://aws.amazon.com/free"
+        }
+      ]
     }
   ],
   "deals": [
