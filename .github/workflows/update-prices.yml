@@ -29,20 +29,31 @@ jobs:
         cat update.log >> $GITHUB_OUTPUT
         echo "EOF" >> $GITHUB_OUTPUT
     
+    - name: Track price history
+      id: history
+      run: |
+        node scripts/track-price-history.js > history.log
+        echo "HISTORY<<EOF" >> $GITHUB_OUTPUT
+        cat history.log >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+    
     - name: Check for changes
       id: git-check
       run: |
-        git diff --quiet data/prices.json || echo "changed=true" >> $GITHUB_OUTPUT
+        git diff --quiet data/ || echo "changed=true" >> $GITHUB_OUTPUT
     
     - name: Commit and push changes
       if: steps.git-check.outputs.changed == 'true'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add data/prices.json
+        git add data/
         git commit -m "📊 Auto-update: Daily price sync from OpenRouter
         
-        $(date -u '+%Y-%m-%d %H:%M UTC')"
+        $(date -u '+%Y-%m-%d %H:%M UTC')
+        
+        - Updated prices from OpenRouter API
+        - Tracked price history" || true
         git push
     
     - name: Summary
@@ -50,4 +61,9 @@ jobs:
         echo "## Price Update Results" >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
         echo "${{ steps.update.outputs.RESULT }}" >> $GITHUB_STEP_SUMMARY
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "## Price History" >> $GITHUB_STEP_SUMMARY
+        echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        echo "${{ steps.history.outputs.HISTORY }}" >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`" >> $GITHUB_STEP_SUMMARY

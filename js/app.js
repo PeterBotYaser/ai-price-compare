@@ -1,6 +1,10 @@
 // AI Price Compare - client-side rendering (no build step)
 
 const DATA_URL = 'data/prices.json';
+const HISTORY_URL = 'data/price-history.json';
+
+// Price history cache
+let priceHistory = null;
 
 // Language detection (defaults to German)
 const LANG = (typeof window !== 'undefined' && window.APP_LANG) || document.documentElement.lang || 'de';
@@ -33,7 +37,11 @@ const i18n = {
     compareTitle: 'Modelle vergleichen',
     dealRequirements: 'Voraussetzungen',
     toDeal: 'Zum Deal →',
-    direct: 'Direkt'
+    direct: 'Direkt',
+    trendUp: 'Preis ↑',
+    trendDown: 'Preis ↓',
+    trendStable: 'Stabil',
+    trend30d: '30 Tage'
   },
   en: {
     compare: 'Compare',
@@ -60,7 +68,11 @@ const i18n = {
     compareTitle: 'Compare Models',
     dealRequirements: 'Requirements',
     toDeal: 'Get Deal →',
-    direct: 'Direct'
+    direct: 'Direct',
+    trendUp: 'Price ↑',
+    trendDown: 'Price ↓',
+    trendStable: 'Stable',
+    trend30d: '30 days'
   }
 };
 
@@ -98,6 +110,35 @@ function badgeClass(category) {
   if (c.includes('budget')) return 'budget';
   if (c.includes('open')) return 'open-source';
   return 'balanced';
+}
+
+// Load price history data
+async function loadPriceHistory() {
+  if (priceHistory) return priceHistory;
+  try {
+    const res = await fetch(HISTORY_URL, { cache: 'no-store' });
+    if (!res.ok) return null;
+    priceHistory = await res.json();
+    return priceHistory;
+  } catch (e) {
+    console.log('Price history not available');
+    return null;
+  }
+}
+
+// Get trend for a model
+function getModelTrend(modelId) {
+  if (!priceHistory || !priceHistory.models[modelId]) return null;
+  return priceHistory.models[modelId].trend || null;
+}
+
+// Render trend indicator
+function renderTrendIndicator(trend) {
+  if (!trend || trend.direction === 'stable') return '';
+  const icon = trend.direction === 'up' ? '📈' : '📉';
+  const label = trend.direction === 'up' ? t('trendUp') : t('trendDown');
+  const cssClass = trend.direction === 'up' ? 'trend-up' : 'trend-down';
+  return `<span class="trend-badge ${cssClass}" title="${t('trend30d')}">${icon} ${label} ${trend.change}%</span>`;
 }
 
 function getModelPricingVariants(model) {
@@ -307,6 +348,8 @@ function renderModelCard(model) {
   const alt = variants.length > 1 ? variants[1] : null;
 
   const isSelected = comparisonState.selected.has(model.id);
+  const trend = getModelTrend(model.id);
+  const trendHtml = renderTrendIndicator(trend);
   
   card.innerHTML = `
     <div class="model-compare">
@@ -328,6 +371,7 @@ function renderModelCard(model) {
         <div class="price-row">
           <span class="price-label">${t('inputPer1M')}</span>
           <span class="price-value">${money(primary.inputPer1M, primary.currency)}</span>
+          ${trendHtml ? `<span class="trend-wrapper">${trendHtml}</span>` : ''}
         </div>
         <div class="price-row">
           <span class="price-label">${t('outputPer1M')}</span>
@@ -568,9 +612,15 @@ async function main() {
   setupSearch();
   createComparisonModal();
 
+  // Load price history in parallel
+  const historyPromise = loadPriceHistory();
+
   const res = await fetch(DATA_URL, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load ${DATA_URL}: ${res.status}`);
   const data = await res.json();
+
+  // Wait for price history to load
+  await historyPromise;
 
   const lastUpdated = data.lastUpdated || null;
   const lastUpdatedEl = document.getElementById('last-updated');

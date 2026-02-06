@@ -1089,3 +1089,49 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* Price Trend Indicators */
+.trend-wrapper {
+    margin-left: auto;
+}
+
+.trend-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.trend-badge.trend-up {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.trend-badge.trend-down {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.price-row .price-label {
+    flex-shrink: 0;
+}
+
+.price-row .price-value {
+    flex-shrink: 0;
+}
+
+.price-row .trend-wrapper {
+    margin-left: auto;
+}
