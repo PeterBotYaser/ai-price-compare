@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokenMeter — AI Model Price Comparison 2025</title>
+    <meta name="description" content="Compare token prices of all AI models at a glance. GPT-4o, Claude, Gemini, Kimi &amp; more. Find the best model for your budget.">
+    <meta name="keywords" content="AI price comparison, token prices, GPT-4 cost, Claude pricing, AI API comparison, LLM costs">
+    <link rel="canonical" href="https://tokenmeter.ai/en/">
+    <link rel="alternate" hreflang="de" href="https://tokenmeter.ai/">
+    <link rel="alternate" hreflang="en" href="https://tokenmeter.ai/en/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <meta property="og:title" content="TokenMeter — AI Model Price Comparison">
+    <meta property="og:description" content="Compare token prices of all AI models. Find savings routes and save up to 40%.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tokenmeter.ai/en/">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tokenmeter.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TokenMeter",
+      "url": "https://tokenmeter.ai/en/",
+      "description": "Independent AI model price comparison",
+      "inLanguage": "en"
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="/en/" class="nav-brand">
+                <svg class="nav-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#3b82f6"/>
+                    <path d="M8 16h16M16 10v12M11 13l5-3 5 3M11 19l5 3 5-3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="nav-brand-text">Token<span class="text-accent">Meter</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#models">Models</a>
+                <a href="#calculator">Calculator</a>
+                <a href="#deals">Deals</a>
+                <a href="#newsletter">Newsletter</a>
+                <a href="/" class="nav-lang">DE</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-bg" aria-hidden="true">
+            <div class="hero-orb hero-orb-1"></div>
+            <div class="hero-orb hero-orb-2"></div>
+            <div class="hero-orb hero-orb-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                Prices updated — February 2025
+            </div>
+            <h1 class="hero-title">
+                Compare AI models.<br>
+                <span class="text-gradient">Save smart.</span>
+            </h1>
+            <p class="hero-sub">
+                Token prices of 50+ models at a glance. Find the best model
+                for your budget — with savings routes, deals, and trend data.
+            </p>
+            <div class="hero-actions">
+                <a href="#models" class="btn btn-primary btn-lg">Compare models</a>
+                <a href="#calculator" class="btn btn-ghost btn-lg">Calculate costs</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-num">50+</span>
+                    <span class="hero-stat-label">Models</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">40%</span>
+                    <span class="hero-stat-label">Savings possible</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">5+</span>
+                    <span class="hero-stat-label">Active deals</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-items">
+                <div class="trust-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    Independent &amp; ad-free
+                </div>
+                <div class="trust-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    Updated daily
+                </div>
+                <div class="trust-item">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Free to use
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Provider Marquee -->
+    <section class="marquee-section">
+        <div class="marquee-label">Prices from leading AI providers</div>
+        <div class="marquee-track">
+            <span class="marquee-item">⬡ OpenAI</span>
+            <span class="marquee-item">◈ Anthropic</span>
+            <span class="marquee-item">◆ Google</span>
+            <span class="marquee-item">◇ Meta</span>
+            <span class="marquee-item">▣ Mistral</span>
+            <span class="marquee-item">◉ Moonshot</span>
+            <span class="marquee-item">◎ Cohere</span>
+            <span class="marquee-item">◈ DeepSeek</span>
+            <span class="marquee-item">◇ xAI</span>
+            <span class="marquee-item">◆ Amazon</span>
+            <span class="marquee-item">⬡ OpenAI</span>
+            <span class="marquee-item">◈ Anthropic</span>
+            <span class="marquee-item">◆ Google</span>
+            <span class="marquee-item">◇ Meta</span>
+            <span class="marquee-item">▣ Mistral</span>
+            <span class="marquee-item">◉ Moonshot</span>
+            <span class="marquee-item">◎ Cohere</span>
+            <span class="marquee-item">◈ DeepSeek</span>
+            <span class="marquee-item">◇ xAI</span>
+            <span class="marquee-item">◆ Amazon</span>
+        </div>
+    </section>
+
+    <!-- Why TokenMeter (Bento Grid) -->
+    <section class="section" id="why">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Why TokenMeter?</h2>
+                <p class="section-sub">Everything you need to optimize AI costs</p>
+            </div>
+            <div class="bento-grid reveal">
+                <div class="bento-card span-2">
+                    <div class="bento-icon">📊</div>
+                    <h3>50+ Models. One Dashboard.</h3>
+                    <p>From GPT-4o to Claude to Kimi K2.5 — all prices current and comparable. Input, output, and savings routes at a glance.</p>
+                </div>
+                <div class="bento-card">
+                    <div class="bento-number">40%</div>
+                    <h3>Average Savings</h3>
+                    <p>Through alternative providers and routing tips.</p>
+                </div>
+                <div class="bento-card">
+                    <div class="bento-icon">⚡</div>
+                    <h3>Updated Daily</h3>
+                    <p>Price changes captured within 24 hours.</p>
+                </div>
+                <div class="bento-card span-2">
+                    <div class="bento-icon">🎯</div>
+                    <h3>Cost Calculator & Deal Finder</h3>
+                    <p>Calculate your monthly API costs and find exclusive discounts. Compare models side by side with our comparison tool.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Section -->
+    <section class="section section-alt" id="models">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">All AI Models Compared</h2>
+                <p class="section-sub">Prices per 1M tokens · Sorted by value</p>
+            </div>
+            <div class="toolbar reveal">
+                <div class="search-wrap">
+                    <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" id="model-search" placeholder="Search models (e.g. GPT-4, Claude, Vision...)" autocomplete="off">
+                </div>
+                <div class="filter-pills filter-bar">
+                    <button class="pill filter-btn active" data-filter="all">All</button>
+                    <button class="pill filter-btn" data-filter="Frontier">Frontier</button>
+                    <button class="pill filter-btn" data-filter="Balanced">Balanced</button>
+                    <button class="pill filter-btn" data-filter="Budget">Budget</button>
+                    <button class="pill filter-btn" data-filter="Open Source">Open Source</button>
+                </div>
+                <div class="sort-wrap">
+                    <select id="model-sort" class="sort-select">
+                        <option value="value">Best value</option>
+                        <option value="price-asc">Price ascending</option>
+                        <option value="price-desc">Price descending</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+            </div>
+            <div class="models-grid" id="models-grid"></div>
+            <div id="no-results" class="empty-state" style="display:none;">
+                <div class="empty-icon">🔍</div>
+                <h3>No models found</h3>
+                <p>Try a different search term or filter.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Savings Highlight -->
+    <section class="section section-accent" id="savings">
+        <div class="container">
+            <div class="savings-card reveal">
+                <div class="savings-badge">💡 Tip</div>
+                <h3>Kimi K2.5 — Save 40% via Synthetic</h3>
+                <div class="savings-compare">
+                    <div class="savings-col">
+                        <span class="savings-label">Direct</span>
+                        <span class="savings-price old">$2.00 / $8.00</span>
+                    </div>
+                    <div class="savings-arrow">→</div>
+                    <div class="savings-col">
+                        <span class="savings-label">Via Synthetic</span>
+                        <span class="savings-price new">$1.20 / $4.80</span>
+                    </div>
+                </div>
+                <a href="https://synthetic.run" target="_blank" rel="noopener" class="btn btn-primary">View deal →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator -->
+    <section class="section" id="calculator">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Cost Calculator</h2>
+                <p class="section-sub">Calculate your monthly API costs</p>
+            </div>
+            <div class="calc-card reveal">
+                <div class="calc-inputs">
+                    <div class="calc-field">
+                        <label for="input-tokens">Input tokens / month</label>
+                        <input type="number" id="input-tokens" value="1000000" min="0">
+                    </div>
+                    <div class="calc-field">
+                        <label for="output-tokens">Output tokens / month</label>
+                        <input type="number" id="output-tokens" value="500000" min="0">
+                    </div>
+                </div>
+                <div class="calc-results" id="calc-results"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deals -->
+    <section class="section section-alt" id="deals">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">🔥 Current Deals</h2>
+                <p class="section-sub">Exclusive discounts and offers</p>
+            </div>
+            <div class="deals-grid" id="deals-grid"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-card reveal">
+                <div class="newsletter-content">
+                    <h2>Don't miss price changes</h2>
+                    <p>Weekly AI price updates, deals, and money-saving tips straight to your inbox.</p>
+                    <ul class="newsletter-perks">
+                        <li>✓ Price changes for all models</li>
+                        <li>✓ New deals &amp; discount codes</li>
+                        <li>✓ Savings routes &amp; alternatives</li>
+                    </ul>
+                </div>
+                <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/xldglwpj" method="POST">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <input type="hidden" name="lang" value="en">
+                    <input type="hidden" name="source" value="tokenmeter.ai">
+                    <button type="submit" class="btn btn-primary btn-block">Subscribe for free</button>
+                    <span class="form-hint">No spam. Unsubscribe anytime.</span>
+                    <div id="newsletter-status" class="newsletter-status"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="nav-brand-text">Token<span class="text-accent">Meter</span></span>
+                    <p>Independent price comparison for AI models and APIs.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#models">Models</a>
+                    <a href="#calculator">Calculator</a>
+                    <a href="#deals">Deals</a>
+                    <a href="#newsletter">Newsletter</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="/impressum.html">Imprint</a>
+                    <a href="/datenschutz.html">Privacy</a>
+                    <a href="/affiliate.html">Affiliate</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Language</h4>
+                    <a href="/">🇩🇪 Deutsch</a>
+                    <a href="/en/">🇬🇧 English</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TokenMeter. Prices may vary.</p>
+                <p>Last update: <span id="last-updated">—</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- Comparison Bar -->
+    <div class="comparison-bar" id="comparison-bar">
+        <div class="container comparison-bar-content">
+            <span class="comparison-count" id="comparison-count">0 models selected</span>
+            <div class="comparison-actions">
+                <button class="btn btn-primary btn-sm" id="compare-now">Compare</button>
+                <button class="btn btn-ghost btn-sm" id="compare-clear">Clear selection</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div class="comparison-modal" id="comparison-modal">
+        <div class="comparison-modal-overlay" id="comparison-modal-overlay"></div>
+        <div class="comparison-modal-content">
+            <div class="comparison-modal-header">
+                <h2>Model Comparison</h2>
+                <button class="comparison-modal-close" id="comparison-modal-close">&times;</button>
+            </div>
+            <div class="comparison-modal-body" id="comparison-modal-body"></div>
+        </div>
+    </div>
+
+    <script>window.APP_LANG = 'en';</script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

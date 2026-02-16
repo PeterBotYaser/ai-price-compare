@@ -1,0 +1,66 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="text" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="100" cy="100" r="200" fill="#6366f1" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="250" fill="#10b981" opacity="0.08"/>
+  
+  <!-- Grid pattern -->
+  <g stroke="#334155" stroke-width="1" opacity="0.3">
+    <line x1="0" y1="157" x2="1200" y2="157"/>
+    <line x1="0" y1="315" x2="1200" y2="315"/>
+    <line x1="0" y1="472" x2="1200" y2="472"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+  </g>
+  
+  <!-- Main content -->
+  <g transform="translate(600, 315)" text-anchor="middle">
+    <!-- Robot icon -->
+    <text x="0" y="-120" font-size="80" fill="#6366f1">🤖</text>
+    
+    <!-- Title -->
+    <text x="0" y="-20" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="800" fill="url(#text)">
+      AI Price Compare
+    </text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="50" font-family="Inter, system-ui, sans-serif" font-size="32" fill="#94a3b8">
+      Vergleiche Preise aller AI-Modelle
+    </text>
+    
+    <!-- Stats -->
+    <g transform="translate(0, 140)">
+      <text x="-200" y="0" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#6366f1">24+</text>
+      <text x="-200" y="35" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#64748b">Modelle</text>
+      
+      <text x="0" y="0" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#10b981">40%</text>
+      <text x="0" y="35" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#64748b">Ersparnis</text>
+      
+      <text x="200" y="0" font-family="Inter, system-ui, sans-serif" font-size="48" font-weight="700" fill="#f59e0b">5+</text>
+      <text x="200" y="35" font-family="Inter, system-ui, sans-serif" font-size="18" fill="#64748b">Deals</text>
+    </g>
+  </g>
+  
+  <!-- URL -->
+  <text x="600" y="580" font-family="Inter, system-ui, sans-serif" font-size="20" fill="#64748b" text-anchor="middle">
+    aipricecompare.com
+  </text>
+</svg>

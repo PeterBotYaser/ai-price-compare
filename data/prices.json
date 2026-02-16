@@ -1,0 +1,900 @@
+{
+  "lastUpdated": "2026-02-06",
+  "affiliateParams": {
+    "openai": "?ref=aipricecompare",
+    "anthropic": "?via=aipricecompare",
+    "synthetic": "?ref=aipricecomp",
+    "together": "?utm_source=aipricecompare",
+    "deepseek": "?ref=aiprice",
+    "google": "?referrer=aipricecompare",
+    "openrouter": "?ref=aipricecompare"
+  },
+  "routes": [
+    {
+      "id": "direct",
+      "name": "Direkt",
+      "description": "Direkt beim Anbieter"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "description": "API-Aggregator mit Preisvorteilen",
+      "url": "https://openrouter.ai?ref=aipricecompare",
+      "savings": "Bis zu 50% günstiger"
+    },
+    {
+      "id": "synthetic",
+      "name": "Synthetic",
+      "description": "Günstige europäische Alternative",
+      "url": "https://synthetic.run?ref=aipricecomp",
+      "savings": "Bis zu 40% günstiger"
+    }
+  ],
+  "models": [
+    {
+      "id": "gpt-4o",
+      "name": "GPT-4o",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 128000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 2.5,
+          "outputPer1M": 10,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 2.5,
+          "outputPer1M": 10,
+          "currency": "USD",
+          "url": "https://openrouter.ai/openai/gpt-4o?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Vision",
+        "Audio",
+        "Fast"
+      ],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "gpt-4o-mini",
+      "name": "GPT-4o Mini",
+      "provider": "OpenAI",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 0.15,
+        "outputPer1M": 0.6,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.15,
+          "outputPer1M": 0.6,
+          "currency": "USD",
+          "url": "https://openrouter.ai/openai/gpt-4o-mini?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Vision",
+        "Fast",
+        "Cheap"
+      ],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "claude-3-5-sonnet",
+      "name": "Claude 3.5 Sonnet",
+      "provider": "Anthropic",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 3,
+          "outputPer1M": 15,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 6,
+          "outputPer1M": 30,
+          "currency": "USD",
+          "url": "https://openrouter.ai/anthropic/claude-3.5-sonnet?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Coding",
+        "Long Context",
+        "Reasoning"
+      ],
+      "affiliateUrl": "https://anthropic.com?via=aipricecompare",
+      "deals": [
+        {
+          "type": "Startup",
+          "description": "$5,000 Credits für qualifizierte Startups",
+          "url": "https://anthropic.com/startups"
+        }
+      ]
+    },
+    {
+      "id": "claude-3-5-haiku",
+      "name": "Claude 3.5 Haiku",
+      "provider": "Anthropic",
+      "category": "Balanced",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 0.8,
+        "outputPer1M": 4,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.8,
+          "outputPer1M": 4,
+          "currency": "USD",
+          "url": "https://openrouter.ai/anthropic/claude-3.5-haiku?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Fast",
+        "Cost-effective"
+      ],
+      "affiliateUrl": "https://anthropic.com?via=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "kimi-k2-5",
+      "name": "Kimi K2.5",
+      "provider": "Moonshot AI",
+      "category": "Frontier",
+      "contextWindow": 256000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 2,
+          "outputPer1M": 8,
+          "currency": "USD"
+        },
+        "syntheticRoute": {
+          "provider": "Synthetic",
+          "inputPer1M": 1.2,
+          "outputPer1M": 4.8,
+          "savingsPercent": 40,
+          "url": "https://synthetic.run?ref=aipricecomp"
+        }
+      },
+      "features": [
+        "Long Context",
+        "Multilingual",
+        "Coding"
+      ],
+      "affiliateUrl": "https://synthetic.run?ref=aipricecomp",
+      "deals": [
+        {
+          "type": "Route",
+          "description": "40% günstiger über Synthetic",
+          "url": "https://synthetic.run"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-v3",
+      "name": "DeepSeek V3",
+      "provider": "DeepSeek",
+      "category": "Budget",
+      "contextWindow": 64000,
+      "pricing": {
+        "inputPer1M": 0.27,
+        "outputPer1M": 1.1,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.3,
+          "outputPer1M": 1.2,
+          "currency": "USD",
+          "url": "https://openrouter.ai/deepseek/deepseek-chat?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Very Cheap",
+        "Good Performance"
+      ],
+      "affiliateUrl": "https://deepseek.com?ref=aiprice",
+      "deals": []
+    },
+    {
+      "id": "gemini-2-flash",
+      "name": "Gemini 2.0 Flash",
+      "provider": "Google",
+      "category": "Balanced",
+      "contextWindow": 1000000,
+      "pricing": {
+        "inputPer1M": 0.075,
+        "outputPer1M": 0.3,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.1,
+          "outputPer1M": 0.4,
+          "currency": "USD",
+          "url": "https://openrouter.ai/google/gemini-2.0-flash-001?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "1M Context",
+        "Vision",
+        "Cheap"
+      ],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "15 Anfragen/Minute kostenlos",
+          "url": "https://ai.google.dev"
+        }
+      ]
+    },
+    {
+      "id": "llama-3-3-70b",
+      "name": "Llama 3.3 70B",
+      "provider": "Meta (via Together AI)",
+      "category": "Open Source",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 0.88,
+        "outputPer1M": 0.88,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.1,
+          "outputPer1M": 0.32,
+          "currency": "USD",
+          "url": "https://openrouter.ai/meta-llama/llama-3.3-70b-instruct?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Open Source",
+        "Self-hostable"
+      ],
+      "affiliateUrl": "https://together.ai?utm_source=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "o3-mini",
+      "name": "o3-mini",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 1.1,
+        "outputPer1M": 4.4,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 1.1,
+          "outputPer1M": 4.4,
+          "currency": "USD",
+          "url": "https://openrouter.ai/openai/o3-mini?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Reasoning",
+        "Coding",
+        "STEM"
+      ],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "o1",
+      "name": "o1",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 15,
+        "outputPer1M": 60,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 15,
+          "outputPer1M": 60,
+          "currency": "USD",
+          "url": "https://openrouter.ai/openai/o1?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Advanced Reasoning",
+        "Complex Tasks"
+      ],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "gemini-2-pro",
+      "name": "Gemini 2.0 Pro",
+      "provider": "Google",
+      "category": "Frontier",
+      "contextWindow": 2000000,
+      "pricing": {
+        "inputPer1M": 3.5,
+        "outputPer1M": 10.5,
+        "currency": "USD"
+      },
+      "features": [
+        "2M Context",
+        "Vision",
+        "Code Execution"
+      ],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose Stufe verfügbar",
+          "url": "https://ai.google.dev"
+        }
+      ]
+    },
+    {
+      "id": "mistral-large",
+      "name": "Mistral Large 2",
+      "provider": "Mistral AI",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 2,
+        "outputPer1M": 6,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 2,
+          "outputPer1M": 6,
+          "currency": "USD",
+          "url": "https://openrouter.ai/mistralai/mistral-large?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Multilingual",
+        "Coding",
+        "Function Calling"
+      ],
+      "affiliateUrl": "https://mistral.ai",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose API-Stufe verfügbar",
+          "url": "https://console.mistral.ai"
+        }
+      ]
+    },
+    {
+      "id": "qwen-2-5-72b",
+      "name": "Qwen 2.5 72B",
+      "provider": "Alibaba Cloud",
+      "category": "Open Source",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 0.35,
+        "outputPer1M": 0.7,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.12,
+          "outputPer1M": 0.39,
+          "currency": "USD",
+          "url": "https://openrouter.ai/qwen/qwen-2.5-72b-instruct?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Open Source",
+        "Multilingual",
+        "Coding"
+      ],
+      "affiliateUrl": "https://huggingface.co/Qwen",
+      "deals": []
+    },
+    {
+      "id": "command-r-plus",
+      "name": "Command R+",
+      "provider": "Cohere",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 2.5,
+        "outputPer1M": 10,
+        "currency": "USD"
+      },
+      "features": [
+        "RAG",
+        "Enterprise",
+        "Citation"
+      ],
+      "affiliateUrl": "https://cohere.com",
+      "deals": [
+        {
+          "type": "Trial",
+          "description": "Kostenloses Testkontingent",
+          "url": "https://cohere.com"
+        }
+      ]
+    },
+    {
+      "id": "claude-3-7-sonnet",
+      "name": "Claude 3.7 Sonnet",
+      "provider": "Anthropic",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "inputPer1M": 3,
+        "outputPer1M": 15,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 3,
+          "outputPer1M": 15,
+          "currency": "USD",
+          "url": "https://openrouter.ai/anthropic/claude-3.7-sonnet?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Coding",
+        "Reasoning",
+        "Extended Thinking"
+      ],
+      "affiliateUrl": "https://anthropic.com?via=aipricecompare",
+      "deals": [
+        {
+          "type": "Startup",
+          "description": "$5,000 Credits für qualifizierte Startups",
+          "url": "https://anthropic.com/startups"
+        }
+      ]
+    },
+    {
+      "id": "deepseek-r1",
+      "name": "DeepSeek R1",
+      "provider": "DeepSeek",
+      "category": "Frontier",
+      "contextWindow": 64000,
+      "pricing": {
+        "inputPer1M": 0.55,
+        "outputPer1M": 2.19,
+        "currency": "USD",
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.7,
+          "outputPer1M": 2.5,
+          "currency": "USD",
+          "url": "https://openrouter.ai/deepseek/deepseek-r1?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Reasoning",
+        "Chain-of-Thought",
+        "Very Cheap"
+      ],
+      "affiliateUrl": "https://deepseek.com?ref=aiprice",
+      "deals": []
+    },
+    {
+      "id": "gemini-2-flash-thinking",
+      "name": "Gemini 2.0 Flash Thinking",
+      "provider": "Google",
+      "category": "Frontier",
+      "contextWindow": 1000000,
+      "pricing": {
+        "inputPer1M": 0.075,
+        "outputPer1M": 0.3,
+        "currency": "USD"
+      },
+      "features": [
+        "Reasoning",
+        "1M Context",
+        "Vision"
+      ],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "15 Anfragen/Minute kostenlos",
+          "url": "https://ai.google.dev"
+        }
+      ]
+    },
+    {
+      "id": "gpt-4-5",
+      "name": "GPT-4.5",
+      "provider": "OpenAI",
+      "category": "Frontier",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 75,
+        "outputPer1M": 150,
+        "currency": "USD"
+      },
+      "features": [
+        "Large",
+        "Expensive",
+        "High Quality"
+      ],
+      "affiliateUrl": "https://openai.com?ref=aipricecompare",
+      "deals": []
+    },
+    {
+      "id": "grok-2",
+      "name": "Grok 2",
+      "provider": "xAI",
+      "category": "Frontier",
+      "contextWindow": 128000,
+      "pricing": {
+        "inputPer1M": 2,
+        "outputPer1M": 10,
+        "currency": "USD"
+      },
+      "features": [
+        "X Integration",
+        "Real-time",
+        "Vision"
+      ],
+      "affiliateUrl": "https://x.ai",
+      "deals": []
+    },
+    {
+      "id": "grok-2-vision",
+      "name": "Grok 2 Vision",
+      "provider": "xAI",
+      "category": "Frontier",
+      "contextWindow": 32768,
+      "pricing": {
+        "inputPer1M": 2,
+        "outputPer1M": 10,
+        "currency": "USD"
+      },
+      "features": [
+        "Vision",
+        "X Integration",
+        "Real-time"
+      ],
+      "affiliateUrl": "https://x.ai",
+      "deals": []
+    },
+    {
+      "id": "amazon-nova-pro",
+      "name": "Amazon Nova Pro",
+      "provider": "Amazon Bedrock",
+      "category": "Frontier",
+      "contextWindow": 300000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.8,
+          "outputPer1M": 3.2,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "Vision",
+        "Tool Use",
+        "Streaming"
+      ],
+      "affiliateUrl": "https://aws.amazon.com/bedrock",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "12 Monate Free Tier für neue AWS-Kunden",
+          "url": "https://aws.amazon.com/free"
+        }
+      ]
+    },
+    {
+      "id": "amazon-nova-micro",
+      "name": "Amazon Nova Micro",
+      "provider": "Amazon Bedrock",
+      "category": "Budget",
+      "contextWindow": 128000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.035,
+          "outputPer1M": 0.14,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "Fast",
+        "Very Cheap",
+        "Streaming"
+      ],
+      "affiliateUrl": "https://aws.amazon.com/bedrock",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "12 Monate Free Tier für neue AWS-Kunden",
+          "url": "https://aws.amazon.com/free"
+        }
+      ]
+    },
+    {
+      "id": "cohere-command-a",
+      "name": "Command A",
+      "provider": "Cohere",
+      "category": "Frontier",
+      "contextWindow": 256000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 2.5,
+          "outputPer1M": 10,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 2.5,
+          "outputPer1M": 10,
+          "currency": "USD",
+          "url": "https://openrouter.ai/cohere/command-a?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "RAG",
+        "Enterprise",
+        "Citation",
+        "Tool Use"
+      ],
+      "affiliateUrl": "https://cohere.com",
+      "deals": [
+        {
+          "type": "Trial",
+          "description": "Kostenloses Testkontingent",
+          "url": "https://cohere.com"
+        }
+      ]
+    },
+    {
+      "id": "gemini-2-flash-lite",
+      "name": "Gemini 2.0 Flash-Lite",
+      "provider": "Google",
+      "category": "Budget",
+      "contextWindow": 1000000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.075,
+          "outputPer1M": 0.3,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "1M Context",
+        "Vision",
+        "Very Cheap",
+        "Fast"
+      ],
+      "affiliateUrl": "https://ai.google.dev?referrer=aipricecompare",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "15 Anfragen/Minute kostenlos",
+          "url": "https://ai.google.dev"
+        }
+      ]
+    },
+    {
+      "id": "perplexity-sonar",
+      "name": "Perplexity Sonar",
+      "provider": "Perplexity",
+      "category": "Balanced",
+      "contextWindow": 128000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 1,
+          "outputPer1M": 1,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 1,
+          "outputPer1M": 1,
+          "currency": "USD",
+          "url": "https://openrouter.ai/perplexity/sonar?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Web Search",
+        "Citations",
+        "Real-time"
+      ],
+      "affiliateUrl": "https://perplexity.ai",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose Stufe mit Limits verfügbar",
+          "url": "https://perplexity.ai"
+        }
+      ]
+    },
+    {
+      "id": "perplexity-sonar-pro",
+      "name": "Perplexity Sonar Pro",
+      "provider": "Perplexity",
+      "category": "Frontier",
+      "contextWindow": 200000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 3,
+          "outputPer1M": 15,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 3,
+          "outputPer1M": 15,
+          "currency": "USD",
+          "url": "https://openrouter.ai/perplexity/sonar-pro?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Advanced Search",
+        "Citations",
+        "Deep Research"
+      ],
+      "affiliateUrl": "https://perplexity.ai",
+      "deals": []
+    },
+    {
+      "id": "mistral-small-3",
+      "name": "Mistral Small 3",
+      "provider": "Mistral AI",
+      "category": "Budget",
+      "contextWindow": 128000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.1,
+          "outputPer1M": 0.3,
+          "currency": "USD"
+        },
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.03,
+          "outputPer1M": 0.11,
+          "currency": "USD",
+          "url": "https://openrouter.ai/mistralai/mistral-small-24b-instruct-2501?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Fast",
+        "Very Cheap",
+        "Function Calling"
+      ],
+      "affiliateUrl": "https://mistral.ai",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "Kostenlose API-Stufe verfügbar",
+          "url": "https://console.mistral.ai"
+        }
+      ]
+    },
+    {
+      "id": "microsoft-phi-4",
+      "name": "Phi-4",
+      "provider": "Microsoft",
+      "category": "Balanced",
+      "contextWindow": 16000,
+      "pricing": {
+        "openrouter": {
+          "provider": "OpenRouter",
+          "inputPer1M": 0.06,
+          "outputPer1M": 0.14,
+          "currency": "USD",
+          "url": "https://openrouter.ai/microsoft/phi-4?ref=aipricecompare"
+        }
+      },
+      "features": [
+        "Open Source",
+        "Reasoning",
+        "Coding"
+      ],
+      "affiliateUrl": "https://azure.microsoft.com",
+      "deals": []
+    },
+    {
+      "id": "amazon-nova-lite",
+      "name": "Amazon Nova Lite",
+      "provider": "Amazon Bedrock",
+      "category": "Budget",
+      "contextWindow": 300000,
+      "pricing": {
+        "direct": {
+          "inputPer1M": 0.06,
+          "outputPer1M": 0.24,
+          "currency": "USD"
+        }
+      },
+      "features": [
+        "Vision",
+        "Very Cheap",
+        "Streaming"
+      ],
+      "affiliateUrl": "https://aws.amazon.com/bedrock",
+      "deals": [
+        {
+          "type": "Free Tier",
+          "description": "12 Monate Free Tier für neue AWS-Kunden",
+          "url": "https://aws.amazon.com/free"
+        }
+      ]
+    }
+  ],
+  "deals": [
+    {
+      "id": "openai-startup",
+      "provider": "OpenAI",
+      "title": "OpenAI for Startups",
+      "description": "Bis zu $10,000 API Credits für qualifizierte Startups",
+      "discount": "Bis zu $10,000",
+      "requirements": "Startup < 2 Jahre, < $1M Funding",
+      "url": "https://openai.com/startup-program",
+      "expires": null
+    },
+    {
+      "id": "github-copilot-student",
+      "provider": "GitHub",
+      "title": "GitHub Copilot Free for Students",
+      "description": "Kostenloser Copilot Zugang mit GitHub Student Pack",
+      "discount": "100%",
+      "requirements": "Student mit .edu E-Mail",
+      "url": "https://education.github.com",
+      "expires": null
+    },
+    {
+      "id": "synthetic-bundle",
+      "provider": "Synthetic",
+      "title": "Synthetic Starter Credits",
+      "description": "$10 kostenloses Guthaben für neue Nutzer",
+      "discount": "$10 Free",
+      "requirements": "Neuer Account",
+      "url": "https://synthetic.run/signup",
+      "expires": null
+    },
+    {
+      "id": "openrouter-credits",
+      "provider": "OpenRouter",
+      "title": "OpenRouter API Credits",
+      "description": "Einmaliges Startguthaben für neue API-Nutzer",
+      "discount": "Bonus Credits",
+      "requirements": "Neuer Account",
+      "url": "https://openrouter.ai?ref=aipricecompare",
+      "expires": null,
+      "featured": true
+    },
+    {
+      "id": "google-startup",
+      "provider": "Google Cloud",
+      "title": "Google Cloud AI Startup Program",
+      "description": "$350,000 Cloud Credits über 2 Jahre für AI-Startups",
+      "discount": "$350,000",
+      "requirements": "Seed-Stage Startup, VC-funded",
+      "url": "https://cloud.google.com/startup",
+      "expires": null
+    },
+    {
+      "id": "amazon-bedrock-free",
+      "provider": "Amazon Bedrock",
+      "title": "Amazon Bedrock Free Tier",
+      "description": "12 Monate kostenloser Zugriff auf Nova Modelle",
+      "discount": "12 Monate",
+      "requirements": "Neuer AWS-Kunde",
+      "url": "https://aws.amazon.com/free",
+      "expires": null,
+      "featured": true
+    },
+    {
+      "id": "cohere-trial",
+      "provider": "Cohere",
+      "title": "Command A Early Access",
+      "description": "Früher Zugriff auf das neue Command A Modell",
+      "discount": "Early Access",
+      "requirements": "Entwickler-Account",
+      "url": "https://cohere.com/command-a",
+      "expires": null
+    }
+  ]
+}

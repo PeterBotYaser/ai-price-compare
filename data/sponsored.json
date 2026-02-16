@@ -1,0 +1,41 @@
+{
+  "enabled": true,
+  "slots": [
+    {
+      "id": "synthetic-featured",
+      "provider": "Synthetic",
+      "modelId": "kimi-k2-5",
+      "type": "featured",
+      "badge": "Empfohlen",
+      "badgeColor": "#10b981",
+      "description": "40% günstiger als direkt bei Moonshot",
+      "cta": "Jetzt sparen",
+      "url": "https://synthetic.run?ref=aipricecomp",
+      "active": true,
+      "startDate": "2025-02-01",
+      "endDate": "2025-03-31",
+      "monthlyFee": 50
+    },
+    {
+      "id": "openrouter-budget",
+      "provider": "OpenRouter",
+      "modelId": null,
+      "type": "route",
+      "badge": "Beste Preise",
+      "badgeColor": "#3b82f6",
+      "description": "Bis zu 50% günstiger über OpenRouter",
+      "cta": "Kostenlos testen",
+      "url": "https://openrouter.ai?ref=aipricecompare",
+      "active": true,
+      "startDate": "2025-02-01",
+      "endDate": null,
+      "monthlyFee": 30
+    }
+  ],
+  "settings": {
+    "maxFeaturedSlots": 3,
+    "showBadgeInTable": true,
+    "showSidebarWidget": true,
+    "highlightColor": "#f59e0b"
+  }
+}
